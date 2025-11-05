@@ -1,7 +1,5 @@
 import sqlite3
 from datetime import date
-from os.path import curdir
-from typing import List, Dict
 
 
 class DatabaseManager:
@@ -223,4 +221,5 @@ class DatabaseManager:
 
 
 # Создаем один объект для работы с базой данных во всей программе
+
 db_manager = DatabaseManager()

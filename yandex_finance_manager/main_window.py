@@ -1,7 +1,7 @@
 from PyQt6.QtWidgets import (QMainWindow, QWidget, QVBoxLayout, QHBoxLayout,
                              QLabel, QPushButton, QStackedWidget, QFrame)
 from PyQt6.QtCore import Qt, pyqtSignal
-from PyQt6.QtGui import QFont
+from PyQt6.QtGui import QFont, QPixmap
 from operations_tab import OperationsTab
 from analytics_tab import AnalyticsTab
 from budget_tab import BudgetTab
@@ -87,7 +87,24 @@ class MainWindow(QMainWindow):
 
         # Кнопки для переключения между вкладками
         self.create_tab_buttons(layout)
-        layout.addStretch()
+
+        """ Добавляем изображение под кнопками """
+        cat_label = QLabel()
+        cat_pixmap = QPixmap("котик с кэшем.jpg")
+
+        if not cat_pixmap.isNull():
+            cat_label.setPixmap(cat_pixmap)
+            cat_label.setScaledContents(True)  # автоматическое растягивание картинки
+
+            cat_label.setMinimumSize(80, 80)  # минимальный размер
+            cat_label.setMaximumSize(300, 300)  # максимальный размер
+
+            cat_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        else:
+            cat_label.setText("Котик с деньгами 🐱💰")
+            cat_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        layout.addWidget(cat_label)
 
         self.update_balance_display()  # показываем текущий баланс
 

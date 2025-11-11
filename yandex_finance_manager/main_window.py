@@ -24,7 +24,7 @@ class MainWindow(QMainWindow):
 
     def initUI(self):
         self.setWindowTitle("Финансовый менеджер")
-        self.setGeometry(100, 100, 1000, 800)
+        self.setGeometry(100, 100, 1200, 900)
 
         central_widget = QWidget()
         self.setCentralWidget(central_widget)
@@ -87,6 +87,7 @@ class MainWindow(QMainWindow):
 
         # Кнопки для переключения между вкладками
         self.create_tab_buttons(layout)
+        layout.addStretch()
 
         """ Добавляем изображение под кнопками """
         cat_label = QLabel()
@@ -96,8 +97,8 @@ class MainWindow(QMainWindow):
             cat_label.setPixmap(cat_pixmap)
             cat_label.setScaledContents(True)  # автоматическое растягивание картинки
 
-            cat_label.setMinimumSize(80, 80)  # минимальный размер
-            cat_label.setMaximumSize(300, 300)  # максимальный размер
+            cat_label.setMinimumSize(100, 100)  # минимальный размер
+            cat_label.setMaximumSize(500, 500)  # максимальный размер
 
             cat_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
         else:
